@@ -1,0 +1,10 @@
+.sideBar {
+    height: 100%;
+    width: 65px;
+    transition: .25s ease all;
+    box-shadow: -10px 0 15px 10px #0e0e1066;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}

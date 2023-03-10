@@ -1,0 +1,43 @@
+.dropDownMenu {
+    position: absolute;
+    top: 25px;
+    background-color: rgb(32 32 35);
+    border-radius: 6.25px;
+    cursor: pointer;
+    padding: 6.25px;
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 0 4px 9px -5px rgba(0,0,0,.1);
+    width: 42.5px;
+    transition: .25s ease all;
+    border: 1px solid transparent;  
+}
+
+.dropDownMenu:hover {
+    box-shadow: 0 4px 9px -5px rgba(0,0,0,.2);
+}
+
+.button {
+    all: unset;
+    height: 24px;
+}
+
+.icon {
+    transform: scale(1);
+    transition: .25s ease all;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.menu {
+    border-radius: 12.5px;
+    box-shadow: 0 15px 17px 2px rgb(0 0 0/25%);
+    margin-top: -6.25px;
+    min-width: 185px;
+    max-width: 320px;
+    background-color: rgb(32 32 35);
+    display: flex;
+    
+}
