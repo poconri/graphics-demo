@@ -1,0 +1,13 @@
+.bar {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.bar:hover {
+  opacity: 1;
+  background-color: rgba(119, 209, 215, 0.85);
+}
+
+.recharts-layer.recharts-bar-rectangle:hover {
+  fill: #ccc;
+}
