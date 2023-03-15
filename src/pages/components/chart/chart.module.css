@@ -11,3 +11,11 @@
 .recharts-layer.recharts-bar-rectangle:hover {
   fill: #ccc;
 }
+
+.tooltip:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px #019fb6;
+  transform: translateY(100%);
+  transition: transform 250ms ease-in-out;
+}

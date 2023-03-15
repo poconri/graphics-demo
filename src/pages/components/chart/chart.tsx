@@ -105,6 +105,68 @@ const DinamicChart = () => {
       </ul>
     );
   };
+
+  const renderTooltip = (_: any, data: any) => {
+    const isRenderable = data[0];
+    if (isRenderable) {
+      const { payload } = data[0];
+      const filteredBackgroundColor = payload.fill.replace("0.85)", `${0.1})`);
+      const filteredColor = payload.fill.replace("0.85)", `${1})`);
+      return (
+        <div
+          style={{
+            backgroundColor: "rgb(32 32 35)",
+            border: "1px solid #9498a7e0",
+            borderRadius: "5px",
+            fontFamily: "inter,sans-serif",
+            display: "visible",
+            padding: "10px",
+          }}
+        >
+          <p
+            style={{
+              color: "#9498a7e0",
+              fontFamily: "inter,sans-serif",
+              marginBottom: "4px",
+            }}
+          >
+            Sales
+          </p>
+          <div
+            style={{
+              backgroundColor: filteredBackgroundColor,
+              padding: "5px",
+              borderRadius: "5px",
+            }}
+            className={styles.tooltip}
+          >
+            <style>
+              {`.${styles.tooltip}:after {
+              border-color: ${filteredColor};
+    }`}
+            </style>
+            <span
+              style={{
+                fontFamily: "inter,sans-serif",
+                color: filteredColor,
+                fontWeight: "bold",
+              }}
+            >
+              {payload.name}:{" "}
+              <span
+                style={{
+                  color: "#F0F0F4",
+                  fontWeight: "normal",
+                }}
+              >
+                {isRenderable.value}
+              </span>
+            </span>
+          </div>
+        </div>
+      );
+    }
+  };
   return (
     <ResponsiveContainer height={400}>
       <BarChart width={600} height={400} data={data}>
@@ -127,9 +189,22 @@ const DinamicChart = () => {
         />
         <Tooltip
           cursor={false}
-          wrapperStyle={{
-            width: 100,
+          contentStyle={{
+            padding: "0",
+            border: "none",
+            borderRadius: "5px",
           }}
+          itemStyle={{
+            display: "none",
+          }}
+          cursorStyle={{
+            display: "none",
+          }}
+          wrapperStyle={{
+            outline: "none",
+            height: "auto",
+          }}
+          labelFormatter={renderTooltip}
         />
         <Legend content={renderLegend} verticalAlign="top" />
         <Bar
@@ -142,6 +217,7 @@ const DinamicChart = () => {
           }}
           onMouseLeave={handleMouseLeave}
           dataKey="sales"
+          id="sales"
           barSize={50}
           className={styles.bar}
         />
